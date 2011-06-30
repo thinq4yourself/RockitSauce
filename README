@@ -1,0 +1,25 @@
+README
+Rockitsauce...web sauciness for Drupal
+-----
+
++ Scripts
+Bunch of misc scripts
+
++ AEgir_ci
+Libcloud/Aegir continuous integration scripts for use with Jenkins
+
++ Builds
+Drush Make build (stub) files
+
++ frigginawesome
+Provisioning program to create a server and install AEgir on it
+
++ Install_Profiles
+tui install profiles
+
++ Patches
+Various patches to Core & 3rd party Drupal stuff
+
++ Feature_Server
+Feature Server Install profile
+
