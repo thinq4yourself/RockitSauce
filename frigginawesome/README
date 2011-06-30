@@ -1,0 +1,35 @@
+Frigg is a little script that makes use of libcloud to:
+
+ * Provision a server (by default, in the Rackspace Cloud)
+ * Install Aegir on it
+
+
+Caveats
+-------
+
+ * Totally and ruthlessly assumes a Debian based system at the moment. Deployment commands are hardcoded apt-get commands.
+ * Needs sanity checking of values in the .ini, and probably elsewhere too.
+ * maybe I should make the Aegir URL an arg and not from the ini, to make it faster to pump out Aegir servers
+ * Can currently only be used with a VPS provider supported by libcloud that supports libcloud's deploy_node function. Some may not.
+   According to libcloud's docs, deploy_node 'Depends on a Provider Driver supporting either using a specific password or returning a generated password.'
+
+
+Dependencies
+------------
+
+ * python
+ * libcloud
+ * python-paramiko
+ * You need an ssh private/public keypair in the .ssh directory of the user you're executing frigg as, because the public key will be copied to the new VPS to let you login.
+ * My libcloud fork (git://github.com/mig5/libcloud.git) has a patch to catch the root user's password to stdout (not that useful since you need a key anyway))
+
+Usage
+-----
+
+ * edit config/frigg.ini to provide your email address, the aegir URL and version, your api keys etc from your provider
+ * python frigg
+
+You'll receive the standard one-time login e-mail for your Aegir installation once completed.
+
+Editing DNS/your hosts file to make the Aegir URL resolvable to the new server's IP is your responsibility.
+
